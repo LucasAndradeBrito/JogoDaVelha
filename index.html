@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jogo da velha</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Tela de apresentação -->
+        <section class="apresentation">
+            <h1>Seja bem vindo(a) ao Jogo da velha!</h1>
+            <button id="buttonContinuar">Continuar</button>
+        </section>
+      <!-- Tela de escolha dos jogadores -->
+      <section class="playerConfiguration" style="display: none;">
+          <h3>informe o nome dos jogadores</h2>
+          <form>
+              <h2>O</h2>
+              <input id="player1" type="text" placeholder="Jogador 1" />
+              <h2>X</h2>
+              <input id="player2" type="text" placeholder="Jogador 2" />
+          </form>
+            <button id="buttonComecar" onclick="começar()">Começar</button>
+        </section>
+        <section class="alertMsg" style="display: none;"></section>
+      <!-- Tela do jogo   -->
+      <section class="game" style="display: none">
+        <h1>Jogo da Velha</h1>
+        <div class="stage">
+          <div class="part1">
+            <div id="0" class="square"></div>
+            <div id="1" class="square"></div>
+            <div id="2" class="square"></div>
+          </div>
+          <div class="part2">
+            <div id="3" class="square"></div>
+            <div id="4" class="square"></div>
+            <div id="5" class="square"></div>
+          </div>
+          <div class="part3">
+            <div id="6" class="square"></div>
+            <div id="7" class="square"></div>
+            <div id="8" class="square"></div>
+          </div>
+        </div>
+        <div class="msg" style="display: none;"></div>
+        <button id="buttonReset">Reset</button>
+      </section>
+    </div>
+    <script src="scriptGame.js"></script>
+    <script src="scriptInterface.js"></script>
+  </body>
+</html>
