@@ -9,6 +9,10 @@ let buttonReset = document.querySelector("#buttonReset");
 let player1 = document.querySelector("#player1");
 let player2 = document.querySelector("#player2");
 let msg = document.querySelector(".msg");
+let platePlayer1 = document.querySelector(".platePlayer1");
+let platePlayer2 = document.querySelector(".platePlayer2");
+let plate1 = 0;
+let plate2 = 0;
 
 //Buttons
 
@@ -52,11 +56,11 @@ function começar() {
     playerConfiguration.style.display = "none";
   }
 
-  console.log(player1.value);
-  console.log(player2.value);
-}
+  //Código dos placares
 
-//Código do placar
+  platePlayer1.innerHTML = `<h1>${player1.value}: ${plate1}</h1>`;
+  platePlayer2.innerHTML = `<h1>${player2.value}: ${plate2}</h1>`;
+}
 
 //Código do jogo
 
@@ -78,11 +82,15 @@ function handleClick(event) {
             <h3>${player1.value} foi o(a) vencedor(a). Com a sequência: ${winSeq}</h3>
             <button id="buttonRestart" onclick="restart()">Restart</button>`;
         msg.style.display = "inline";
+        plate1 = plate1 + 1;
+        platePlayer1.innerHTML = `<h1>${player1.value}: ${plate1}</h1>`;
       } else {
         msg.innerHTML = `<h1>Vitória!</h1>
             <h3>${player2.value} foi o(a) vencedor(a). Com a sequência: ${winSeq}</h3>
             <button id="buttonRestart" onclick="restart()">Restart</button>`;
         msg.style.display = "inline";
+        plate2 = plate2 + 1;
+        platePlayer2.innerHTML = `<h1>${player2.value}: ${plate2}</h1>`;
       }
     }, 10);
   }
@@ -109,7 +117,6 @@ function updateSquare(position) {
 // Botões do jogo
 
 function restart() {
-  msg.innerHTML = null;
   msg.style.display = "none";
   board = ["", "", "", "", "", "", "", "", ""];
   playerTime = 0;

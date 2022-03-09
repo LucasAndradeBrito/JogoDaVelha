@@ -58,11 +58,19 @@ button {
 
 /* Div para o dashboard do jogo */
 
+h1 {
+  color: white;
+}
+
 .game {
   display: flex;
   flex-flow: column wrap;
   align-items: center;
   margin: 5% 0 0 0;
+}
+
+.game h1 {
+  color: white;
 }
 
 .msg {
