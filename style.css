@@ -2,8 +2,35 @@
   margin: 0;
   padding: 0;
   font-family: "comic sans ms", arial, helvetica, sans-serif;
-  color: rgb(50, 50, 50);
 }
+
+h1 {
+  color: white;
+  font-size: 2em;
+}
+
+h2 {
+  color: white;
+  font-size: 1.5em;
+}
+
+h3 {
+  color: white;
+}
+
+/* Definindo o ::placeholder para todos os navegadores */
+
+#inputPlayer1::-webkit-input-placeholder,
+::-moz-placeholder {
+  color: white;
+}
+
+#inputPlayer2::-webkit-input-placeholder,
+#inputPlayer2::-moz-placeholder {
+  color: white;
+}
+
+/* Inicio do código da página */
 
 .container {
   display: flex;
@@ -15,48 +42,183 @@
   background-color: rgb(50, 50, 50);
 }
 
-#imageX {
-  width: 20px;
-}
-
-/* Div de apresentação do site */
+/* Div: Tela de apresentação do jogo*/
 
 .apresentation {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
   width: 400px;
-  background-color: rgb(218, 186, 160);
+  height: 200px;
+  background-color: rgb(57, 145, 245);
+  box-shadow: 0px 0px 15px 2px rgb(57, 145, 245);
+  border-radius: 15px;
   text-align: center;
-}
-
-.apresentation h1,
-button {
-  padding: 10px;
 }
 
 .apresentation h1 {
   margin: 10px 0 0 0;
+  color: rgb(0, 0, 0);
+  text-shadow: 2px 2px 5px rgb(82, 82, 82);
 }
 
-.apresentation button {
-  margin: 10px 0 10px 0;
+#buttonContinuar {
+  margin: 50px 0 10px 0;
+  padding: 10px;
+  align-self: center;
+  background-color: white;
+  box-shadow: 0px 0px 25px 0.5px rgb(10, 100, 200);
+  border: none;
+  border-radius: 7px;
+  color: rgb(57, 145, 245);
+  font-weight: bold;
+  font-size: 1.2em;
+  transition-property: all;
+  transition-duration: 600ms;
 }
 
-/* Div para informação dos jogadores */
+#buttonContinuar:hover {
+  background-color: rgb(26, 66, 111);
+  color: white;
+}
+
+/* Div: Seleção dos jogadores */
 
 .playerConfiguration {
-  position: relative;
-  max-width: 400px;
+  width: 450px;
   box-sizing: border-box;
-  background-color: rgb(218, 186, 160);
+  background-color: rgb(57, 145, 245);
+  box-shadow: 0px 0px 15px 2px rgb(57, 145, 245);
+  border-radius: 15px;
   text-align: center;
 }
 
+.playerConfiguration h2 {
+  margin-top: 10px;
+  padding: 10px;
+  text-shadow: 2px 2px 5px rgb(70, 70, 70);
+}
+
+.player1 {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  padding: 10px;
+}
+
+#symbolPlayer1 {
+  width: 75px;
+}
+
+#inputPlayer1 {
+  align-self: center;
+  margin: 0 0 0 10px;
+  padding: 5px;
+  box-sizing: border-box;
+  width: 150px;
+  height: 50px;
+  background-color: transparent;
+  /* border: 1 solid black; */
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 20px;
+}
+
+.player2 {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  padding: 10px;
+}
+
+#symbolPlayer2 {
+  margin: 0 0 0 -15px;
+  width: 100px;
+}
+
+#inputPlayer2 {
+  align-self: center;
+  margin: 0 0 0 -5px;
+  padding: 5px;
+  box-sizing: border-box;
+  width: 150px;
+  height: 50px;
+  background-color: transparent;
+  /* border: 1 solid black; */
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 20px;
+}
+
+#buttonComecar {
+  margin: 10px 0 20px 0;
+  padding: 10px;
+  align-self: center;
+  background-color: white;
+  box-shadow: 0px 0px 25px 0.5px rgb(10, 100, 200);
+  border: none;
+  border-radius: 7px;
+  color: rgb(57, 145, 245);
+  font-weight: bold;
+  font-size: 1.2em;
+  transition-property: all;
+  transition-duration: 600ms;
+}
+
+#buttonComecar:hover {
+  background-color: rgb(26, 66, 111);
+  color: white;
+}
+
 .alertMsg {
-  width: 400px;
-  height: 200px;
-  background-color: rgb(218, 186, 160);
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  width: 450px;
+  box-sizing: border-box;
+  background-color: rgb(57, 145, 245);
+  box-shadow: 0px 0px 15px 2px rgb(57, 145, 245);
+  border-radius: 15px;
+}
+
+.alertMsg h1 {
+  padding: 20px 20px 0 20px;
+  color: rgb(0, 0, 0);
+  text-shadow: 2px 2px 5px rgb(80, 80, 80);
+}
+
+.alertMsg h2 {
+  padding-bottom: 20px;
+  text-shadow: 2px 2px 5px rgb(70, 70, 70);
+}
+
+#alertButton {
+  margin-bottom: 20px;
+  padding: 10px;
+  align-self: center;
+  background-color: white;
+  box-shadow: 0px 0px 25px 0.5px rgb(10, 100, 200);
+  border: none;
+  border-radius: 7px;
+  color: rgb(57, 145, 245);
+  font-weight: bold;
+  font-size: 1.2em;
+  transition-property: all;
+  transition-duration: 600ms;
+}
+
+#alertButton:hover {
+  background-color: rgb(26, 66, 111);
+  color: white;
 }
 
 /* Div para o dashboard do jogo */
+
+#imageX {
+  width: 20px;
+}
 
 h1 {
   color: white;
