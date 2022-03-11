@@ -6,8 +6,8 @@ let playerConfiguration = document.querySelector(".playerConfiguration");
 let alertMsg = document.querySelector(".alertMsg");
 let game = document.querySelector(".game");
 let buttonReset = document.querySelector("#buttonReset");
-let player1 = document.querySelector("#player1");
-let player2 = document.querySelector("#player2");
+let inputPlayer1 = document.querySelector("#inputPlayer1");
+let inputPlayer2 = document.querySelector("#inputPlayer2");
 let msg = document.querySelector(".msg");
 let platePlayer1 = document.querySelector(".platePlayer1");
 let platePlayer2 = document.querySelector(".platePlayer2");
@@ -30,36 +30,36 @@ function entendi() {
   playerConfiguration.style.display = "inline";
 }
 
-function começar() {
-  if (player1.value != "" && player2.value != "") {
+function comecar() {
+  if (inputPlayer1.value != "" && inputPlayer2.value != "") {
     playerConfiguration.style.display = "none";
     game.style.display = "flex";
-  } else if (player1.value == "" && player2.value == "") {
+  } else if (inputPlayer1.value == "" && inputPlayer2.value == "") {
     alertMsg.innerHTML = `<h1>Atenção!</h1>
-    <h3>Informe os nomes dos jogadores</h3>
-    <button class="alertButton" onclick="entendi()">Entendi</button>`;
-    alertMsg.style.display = "inline";
+    <h2>Informe os nomes dos jogadores</h2>
+    <button id="alertButton" onclick="entendi()">Entendi</button>`;
+    alertMsg.style.display = "flex";
     playerConfiguration.style.display = "none";
-  } else if (player1.value == "") {
+  } else if (inputPlayer1.value == "") {
     alertMsg.innerHTML = `
       <h1>Atenção!</h1>
-      <h3>Informe o nome do jogador 1</h3>
-      <button class="alertButton" onclick="entendi()">Entendi</button>`;
-    alertMsg.style.display = "inline";
+      <h2>Informe o nome do jogador 1</h2>
+      <button id="alertButton" onclick="entendi()">Entendi</button>`;
+    alertMsg.style.display = "flex";
     playerConfiguration.style.display = "none";
   } else {
     alertMsg.innerHTML = `
       <h1>Atenção!</h1>
-      <h3>Informe o nome do jogador 2</h3>
-      <button class="alertButton" onclick="entendi()">Entendi</button>`;
-    alertMsg.style.display = "inline";
+      <h2>Informe o nome do jogador 2</h2>
+      <button id="alertButton" onclick="entendi()">Entendi</button>`;
+    alertMsg.style.display = "flex";
     playerConfiguration.style.display = "none";
   }
 
   //Código dos placares
 
-  platePlayer1.innerHTML = `<h1>${player1.value}: ${plate1}</h1>`;
-  platePlayer2.innerHTML = `<h1>${player2.value}: ${plate2}</h1>`;
+  platePlayer1.innerHTML = `<h1>${inputPlayer1.value}: ${plate1}</h1>`;
+  platePlayer2.innerHTML = `<h1>${inputPlayer2.value}: ${plate2}</h1>`;
 }
 
 //Código do jogo
@@ -79,18 +79,18 @@ function handleClick(event) {
     setTimeout(() => {
       if (playerTime == 1) {
         msg.innerHTML = `<h1>Vitória!</h1>
-            <h3>${player1.value} foi o(a) vencedor(a). Com a sequência: ${winSeq}</h3>
+            <h2>${inputPlayer1.value} foi o(a) vencedor(a). Com a sequência: ${winSeq}</h2>
             <button id="buttonRestart" onclick="restart()">Restart</button>`;
         msg.style.display = "inline";
         plate1 = plate1 + 1;
-        platePlayer1.innerHTML = `<h1>${player1.value}: ${plate1}</h1>`;
+        platePlayer1.innerHTML = `<h1>${inputPlayer1.value}: ${plate1}</h1>`;
       } else {
         msg.innerHTML = `<h1>Vitória!</h1>
-            <h3>${player2.value} foi o(a) vencedor(a). Com a sequência: ${winSeq}</h3>
+            <h2>${inputPlayer2.value} foi o(a) vencedor(a). Com a sequência: ${winSeq}</h2>
             <button id="buttonRestart" onclick="restart()">Restart</button>`;
         msg.style.display = "inline";
         plate2 = plate2 + 1;
-        platePlayer2.innerHTML = `<h1>${player2.value}: ${plate2}</h1>`;
+        platePlayer2.innerHTML = `<h1>${inputPlayer2.value}: ${plate2}</h1>`;
       }
     }, 10);
   }
@@ -99,7 +99,7 @@ function handleClick(event) {
   else if (draw()) {
     setTimeout(() => {
       msg.innerHTML = `<h1>Empate!</h1>
-        <h3>Não houve vencedores nesse round, vamos tentar novamente!</h3>
+        <h2>Não houve vencedores nesse round, vamos tentar novamente!</h2>
         <button id="buttonRestart" onclick="restart()">Restart</button>`;
       msg.style.display = "inline";
     }, 10);
