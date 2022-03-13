@@ -11,7 +11,7 @@
     <div class="container">
       <!-- Tela de apresentação -->
       <section class="apresentation">
-        <h1>Jogo da velha!</h1>
+        <h1>Jogo da velha</h1>
         <button id="buttonContinuar">Continuar</button>
       </section>
       <!-- Tela de escolha dos jogadores -->
@@ -20,11 +20,38 @@
         <form>
           <div class="player1">
             <img id="symbolPlayer1" src="./assets/o.png" alt="symbolPlayer1" />
-            <input id="inputPlayer1" type="text" placeholder="Jogador 1" />
+            <input
+              id="inputPlayer1"
+              name="player2"
+              type="text"
+              placeholder="Jogador 1"
+              maxlength="10"
+            />
           </div>
           <div class="player2">
             <img id="symbolPlayer2" src="./assets/x.png" alt="symbolPlayer2" />
-            <input id="inputPlayer2" type="text" placeholder="Jogador 2" />
+            <input
+              id="inputPlayer2"
+              name="player2"
+              type="text"
+              placeholder="Jogador 2"
+              maxlength=""
+            />
+          </div>
+          <div class="NumRound">
+            <img
+              id="symbolBattle"
+              src="./assets/battle.png"
+              alt="symbolBattle"
+            />
+            <input
+              type="number"
+              name="round"
+              id="inputRound"
+              placeholder="Nº de Rodadas"
+              maxlength="3"
+              oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+            />
           </div>
         </form>
         <button id="buttonComecar" onclick="comecar()">Começar</button>
@@ -32,9 +59,11 @@
       <section class="alertMsg" style="display: none"></section>
       <!-- Tela do jogo   -->
       <section class="game" style="display: none">
-        <div class="platePlayer1"></div>
-        <div class="platePlayer2"></div>
-        <h1>Jogo da Velha</h1>
+        <div class="plate">
+          <div id="platePlayer1"></div>
+          <div id="round"></div>
+          <div id="platePlayer2"></div>
+        </div>
         <div class="stage">
           <div class="part1">
             <div id="0" class="square"></div>
@@ -53,7 +82,7 @@
           </div>
         </div>
         <div class="msg" style="display: none"></div>
-        <button id="buttonReset">Reset</button>
+        <button id="buttonMainMenu">Voltar ao menu</button>
       </section>
     </div>
     <script src="scriptGame.js"></script>
